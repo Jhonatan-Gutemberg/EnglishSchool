@@ -2,6 +2,8 @@ package com.englishSchool.app.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +39,7 @@ public class Classroom {
     private Teacher teacher;
 
     @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Student> students;
 
     public Classroom(String name) {

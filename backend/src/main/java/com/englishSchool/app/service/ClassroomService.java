@@ -12,7 +12,6 @@ import com.englishSchool.app.model.Classroom;
 import com.englishSchool.app.model.Teacher;
 import com.englishSchool.app.exceptions.UserNotFoundException;
 import com.englishSchool.app.repositories.ClassroomRepository;
-import com.englishSchool.app.repositories.TeacherRepository;
 import com.englishSchool.app.service.interfaces.IClassroomService;
 import com.englishSchool.app.service.interfaces.ITeacherService;
 

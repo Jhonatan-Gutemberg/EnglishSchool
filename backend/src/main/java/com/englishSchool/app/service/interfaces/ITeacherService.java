@@ -7,7 +7,7 @@ import com.englishSchool.app.model.Teacher;
 
 public interface ITeacherService {
 
-     Teacher register(TeacherDTO teacherDTO);
+    Teacher register(TeacherDTO teacherDTO);
 
     List<Teacher> getAllTeacher();
 
@@ -16,5 +16,5 @@ public interface ITeacherService {
     Teacher update(Long id, TeacherDTO teacherDTO);
 
     boolean delete(Long id);
-    
+
 }

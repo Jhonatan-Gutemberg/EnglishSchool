@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.englishSchool.app.enums.UsersType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -34,7 +35,7 @@ public class Student extends Users {
     private List<Activity> activities;
 
     @ManyToOne
-    @JoinColumn(name = "classroom_id", nullable = false)
+    @JsonBackReference
     private Classroom classroom;
 
     public Student(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
