@@ -1,5 +1,6 @@
 package com.englishSchool.app.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.englishSchool.app.enums.UsersType;
@@ -20,9 +21,11 @@ public class Administrator extends Users {
     @Column(name = "lastLoginAt")
     private LocalDateTime lastLoginAt;
 
-    public Administrator(String name, LocalDateTime lastRewarded, String email, UsersType type, String phoneNumber,
+    public Administrator(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
             String password, String address, LocalDateTime lastLoginAt) {
         super(name, lastRewarded, email, type, phoneNumber, password, address);
         this.lastLoginAt = lastLoginAt;
     }
+
+    
 }

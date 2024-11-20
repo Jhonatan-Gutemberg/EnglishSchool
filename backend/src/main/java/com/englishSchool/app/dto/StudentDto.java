@@ -1,15 +1,17 @@
 package com.englishSchool.app.dto;
 
-import java.time.LocalDateTime;
-public record StudentDto(
-        String name,
-        LocalDateTime lastRewarded,
-        String email,
-        String phoneNumber,
-        String address,
-        String cpf,
-        String rg,
-        String level,
-        Long id_classroom) {
+import java.time.LocalDate;
+
+public record StudentDTO(
+                String name,
+                LocalDate lastRewarded,
+                String email,
+                String phoneNumber,
+                String password,
+                String address,
+                String cpf,
+                String rg,
+                String level,
+                Long id_classroom) {
 
 }

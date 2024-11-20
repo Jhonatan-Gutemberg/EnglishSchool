@@ -1,6 +1,6 @@
 package com.englishSchool.app.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.englishSchool.app.enums.UsersType;
@@ -29,7 +29,7 @@ public class Teacher extends Users {
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private List<Classroom> classrooms;
 
-    public Teacher(String name, LocalDateTime lastRewarded, String email, UsersType type, String phoneNumber,
+    public Teacher(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
             String password, String address, double salary, String department) {
         super(name, lastRewarded, email, type, phoneNumber, password, address);
         this.salary = salary;

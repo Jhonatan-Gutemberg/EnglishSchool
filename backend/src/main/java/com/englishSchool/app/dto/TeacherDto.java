@@ -1,12 +1,13 @@
 package com.englishSchool.app.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-public record TeacherDto(
+public record TeacherDTO(
         String name,
-        LocalDateTime lastRewarded,
+        LocalDate lastRewarded,
         String email,
         String phoneNumber,
+        String password,
         String address,
         double salary,
         String department,

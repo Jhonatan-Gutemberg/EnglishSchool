@@ -1,6 +1,6 @@
 package com.englishSchool.app.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.englishSchool.app.enums.UsersType;
@@ -37,13 +37,12 @@ public class Student extends Users {
     @JoinColumn(name = "classroom_id", nullable = false)
     private Classroom classroom;
 
-    public Student(String name, LocalDateTime lastRewarded, String email, UsersType type, String phoneNumber,
-            String password, String address, String cpf, String rg, String level, Classroom classroom) {
+    public Student(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
+            String password, String address, String cpf, String rg, String level) {
         super(name, lastRewarded, email, type, phoneNumber, password, address);
         this.cpf = cpf;
         this.rg = rg;
         this.level = level;
-        this.classroom = classroom;
     }
 
 }
