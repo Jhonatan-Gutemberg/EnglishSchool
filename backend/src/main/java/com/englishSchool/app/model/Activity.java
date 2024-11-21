@@ -2,6 +2,8 @@ package com.englishSchool.app.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,13 +31,21 @@ public class Activity {
 
     @Column(name = "name", nullable = false, columnDefinition = "VARCHAR(255)")
     private String name;
-    @Column(name = "description", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
+    @Column(name = "description", nullable = false, columnDefinition = "VARCHAR(255)")
     private String description;
-    @Column(name = "difficultyLevel", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
-    private String difficultyLevel;
-    @Column(name = "dueDate", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
-    private LocalDate dueDate;
+    @Column(name = "difficultyLevel", nullable = false, columnDefinition = "VARCHAR(255)")
+    private int difficultyLevel;
+    @Column(name = "dueDate", nullable = false, columnDefinition = "VARCHAR(255)")
+    private LocalDate createdDate;
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @JoinColumn(name = "classroom_id", nullable = false)
+    @JsonBackReference
+    private Classroom classroom;
+
+    public Activity(String name, String description, int difficultyLevel) {
+        this.name = name;
+        this.description = description;
+        this.difficultyLevel = difficultyLevel;
+        this.createdDate = LocalDate.now();
+    }
 }

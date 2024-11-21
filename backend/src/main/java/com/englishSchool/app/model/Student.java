@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -29,10 +28,6 @@ public class Student extends Users {
     private String rg;
     @Column(name = "level", nullable = false, columnDefinition = "VARCHAR(255)")
     private String level;
-
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    @Column(name = "activities", columnDefinition = "VARCHAR(255)")
-    private List<Activity> activities;
 
     @ManyToOne
     @JsonBackReference

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.englishSchool.app.enums.UsersType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,6 +28,7 @@ public class Teacher extends Users {
     private String department;
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Classroom> classrooms;
 
     public Teacher(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,

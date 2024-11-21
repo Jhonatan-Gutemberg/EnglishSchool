@@ -2,12 +2,15 @@ package com.englishSchool.app.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.englishSchool.app.dto.ActivityDTO;
 import com.englishSchool.app.dto.ClassroomDTO;
 import com.englishSchool.app.mappers.ClassroomMapper;
+import com.englishSchool.app.model.Activity;
 import com.englishSchool.app.model.Classroom;
 import com.englishSchool.app.model.Teacher;
 import com.englishSchool.app.exceptions.UserNotFoundException;
@@ -50,6 +53,7 @@ public class ClassroomService implements IClassroomService {
         if (optional.isPresent()) {
             Classroom existingClassroom = optional.get();
             existingClassroom.setName(classroomDTO.name());
+            classroomRepository.save(existingClassroom);
             return existingClassroom;
         } else {
             throw new UserNotFoundException("User with id " + id + " not found.");
@@ -77,10 +81,18 @@ public class ClassroomService implements IClassroomService {
             Teacher teacher = teacherService.getTeacherById(id_Teacher);
 
             existingClassroom.setTeacher(teacher);
+            classroomRepository.save(existingClassroom);
             return existingClassroom;
         } else {
             throw new UserNotFoundException("User with id " + id + " not found.");
         }
+    }
+
+    @Override
+    public List<Activity> getActivitiesByClassroomId(Long classroomId) {
+        Classroom classroom = getClassroomById(classroomId);
+        return classroom.getActivities();
+
     }
 
 }

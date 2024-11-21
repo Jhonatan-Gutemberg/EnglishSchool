@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.englishSchool.app.controller.ApiResponse.ApiResponse;
 import com.englishSchool.app.dto.ClassroomDTO;
+import com.englishSchool.app.model.Activity;
 import com.englishSchool.app.model.Classroom;
 import com.englishSchool.app.service.interfaces.IClassroomService;
 
@@ -78,6 +79,21 @@ public class ClassroomController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
         }
     }
+
+    @GetMapping("/{id}/activities")
+    public ResponseEntity<ApiResponse<List<Activity>>> getClassroomActivities(@PathVariable Long id) {
+        try {
+            List<Activity> activities = classroomService.getActivitiesByClassroomId(id);
+            ApiResponse<List<Activity>> response = new ApiResponse<>(true,
+                    "All Classroom fetched successfully", activities);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            ApiResponse<List<Activity>> errorResponse = new ApiResponse<>(false, e.getMessage(), null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+        }
+    }
+
+    
 
     @PutMapping("/update/{id}")
     public ResponseEntity<ApiResponse<Classroom>> update(@PathVariable Long id,

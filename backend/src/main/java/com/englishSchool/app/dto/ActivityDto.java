@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public record ActivityDTO(
         String name,
         String description,
-        String difficultyLevel,
+        int difficultyLevel,
         LocalDate dueDate,
-        Long studentId) {
+        Long id_classroom) {
 
 }

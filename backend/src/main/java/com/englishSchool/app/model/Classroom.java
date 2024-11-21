@@ -42,6 +42,10 @@ public class Classroom {
     @JsonManagedReference
     private List<Student> students;
 
+    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Activity> activities;
+
     public Classroom(String name) {
         this.name = name;
     }
