@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; 
+  color: #333; 
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+h1, h2, h3 {
+  color: #333; 
+}
+
+a {
+  text-decoration: none; 
+  color: inherit; 
+}
+.main-content {
+  flex: 1; 
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+footer a {
+  color: #F1C40F; 
+}
+
+.App {
+  background: linear-gradient(to bottom, #f4f4f4, #e0e0e0);
+}
+
