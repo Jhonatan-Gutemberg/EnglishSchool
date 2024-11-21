@@ -35,9 +35,7 @@ const Home = () => {
       <section className="benefits">
         <h2>Por que escolher nossa escola?</h2>
         <ul>
-          <li>Aulas ao vivo com professores nativos</li>
           <li>Flexibilidade de horários</li>
-          <li>Certificado reconhecido</li>
           <li>Material didático atualizado</li>
         </ul>
       </section>
