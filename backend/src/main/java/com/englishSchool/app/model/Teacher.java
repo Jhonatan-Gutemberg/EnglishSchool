@@ -22,8 +22,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Teacher extends Users {
 
-    @Column(name = "salary", nullable = false)
-    private double salary;
+    @Column(name = "cpf", nullable = false)
+    private String cpf;
     @Column(name = "department", nullable = false)
     private String department;
 
@@ -32,9 +32,9 @@ public class Teacher extends Users {
     private List<Classroom> classrooms;
 
     public Teacher(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
-            String password, String address, double salary, String department) {
+            String password, String address, String cpf, String department) {
         super(name, lastRewarded, email, type, phoneNumber, password, address);
-        this.salary = salary;
+        this.cpf = cpf;
         this.department = department;
     }
 

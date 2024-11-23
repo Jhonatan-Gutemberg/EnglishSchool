@@ -20,7 +20,7 @@ public class UsersMapper {
     }
 
     public static Teacher TeacherDtoToModel(TeacherDTO teacherDTO) {
-        return new Teacher(teacherDTO.name(),teacherDTO.lastRewarded(),teacherDTO.email(),UsersType.TEACHER,teacherDTO.phoneNumber(),teacherDTO.password(),teacherDTO.address(),teacherDTO.salary(),teacherDTO.department());
+        return new Teacher(teacherDTO.name(),teacherDTO.lastRewarded(),teacherDTO.email(),UsersType.TEACHER,teacherDTO.phoneNumber(),teacherDTO.password(),teacherDTO.address(),teacherDTO.cpf(),teacherDTO.department());
     }
 
     public static Administrator UserDtoToModel(AdministratorDTO administratorDTO) {

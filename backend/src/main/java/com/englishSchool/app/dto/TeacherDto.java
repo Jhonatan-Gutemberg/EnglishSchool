@@ -12,7 +12,7 @@ public record TeacherDTO(
                 String phoneNumber,
                 String password,
                 String address,
-                double salary,
+                String cpf,
                 String department,
                 Long id_classrooms) {
 

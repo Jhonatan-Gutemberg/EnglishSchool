@@ -48,7 +48,6 @@ public class TeacherService implements ITeacherService {
             existingTeacher.setAddress(teacherDTO.address());
             existingTeacher.setPhoneNumber(teacherDTO.phoneNumber());
             existingTeacher.setPassword(teacherDTO.password());
-            existingTeacher.setSalary(teacherDTO.salary());
             existingTeacher.setDepartment(teacherDTO.department());
 
             teacherRepository.save(existingTeacher);

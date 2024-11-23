@@ -32,8 +32,8 @@ public class Users {
     protected Long id;
     @Column(name = "name", nullable = false, columnDefinition = "VARCHAR(255)")
     protected String name;
-    @Column(name = "lastRewarded")
-    protected LocalDate lastRewarded;
+    @Column(name = "databirth")
+    protected LocalDate databirth;
     @Column(name = "email", nullable = false, unique = true, columnDefinition = "VARCHAR(50)")
     protected String email;
     @Enumerated(EnumType.STRING)
@@ -45,10 +45,10 @@ public class Users {
     @Column(name = "address", nullable = false, columnDefinition = "VARCHAR(255)")
     protected String address;
 
-    public Users(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
+    public Users(String name, LocalDate databirth, String email, UsersType type, String phoneNumber,
             String password, String address) {
         this.name = name;
-        this.lastRewarded = lastRewarded;
+        this.databirth = databirth;
         this.email = email;
         this.type = type;
         this.phoneNumber = phoneNumber;
