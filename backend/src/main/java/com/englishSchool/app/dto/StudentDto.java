@@ -6,7 +6,7 @@ import com.englishSchool.app.enums.UsersType;
 
 public record StudentDTO(
                 String name,
-                LocalDate lastRewarded,
+                LocalDate databirth,
                 String email,
                  UsersType type,
                 String phoneNumber,

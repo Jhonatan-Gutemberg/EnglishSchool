@@ -21,11 +21,10 @@ public class Administrator extends Users {
     @Column(name = "lastLoginAt")
     private LocalDateTime lastLoginAt;
 
-    public Administrator(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
+    public Administrator(String name, LocalDate databirth, String email, String cpf, UsersType type, String phoneNumber,
             String password, String address, LocalDateTime lastLoginAt) {
-        super(name, lastRewarded, email, type, phoneNumber, password, address);
+        super(name, databirth, email, cpf, type, phoneNumber, password, address);
         this.lastLoginAt = lastLoginAt;
     }
 
-    
 }

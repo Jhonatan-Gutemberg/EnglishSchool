@@ -7,8 +7,9 @@ import com.englishSchool.app.enums.UsersType;
 
 public record AdministratorDTO(
         String name,
-        LocalDate lastRewarded,
+        LocalDate databirth,
         String email,
+        String cpf,
         UsersType type,
         String phoneNumber,
         String password,

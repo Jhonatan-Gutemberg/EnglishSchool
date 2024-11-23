@@ -36,6 +36,8 @@ public class Users {
     protected LocalDate databirth;
     @Column(name = "email", nullable = false, unique = true, columnDefinition = "VARCHAR(50)")
     protected String email;
+    @Column(name = "cpf", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
+    protected String cpf;
     @Enumerated(EnumType.STRING)
     protected UsersType type;
     @Column(name = "phoneNumber", nullable = false, columnDefinition = "VARCHAR(50)")
@@ -45,11 +47,12 @@ public class Users {
     @Column(name = "address", nullable = false, columnDefinition = "VARCHAR(255)")
     protected String address;
 
-    public Users(String name, LocalDate databirth, String email, UsersType type, String phoneNumber,
+    public Users(String name, LocalDate databirth, String email, String cpf, UsersType type, String phoneNumber,
             String password, String address) {
         this.name = name;
         this.databirth = databirth;
         this.email = email;
+        this.cpf = cpf;
         this.type = type;
         this.phoneNumber = phoneNumber;
         this.password = password;

@@ -22,8 +22,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Student extends Users {
-    @Column(name = "cpf", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
-    private String cpf;
+
     @Column(name = "rg", nullable = false, unique = true, columnDefinition = "VARCHAR(255)")
     private String rg;
     @Column(name = "level", nullable = false, columnDefinition = "VARCHAR(255)")
@@ -33,10 +32,9 @@ public class Student extends Users {
     @JsonBackReference
     private Classroom classroom;
 
-    public Student(String name, LocalDate lastRewarded, String email, UsersType type, String phoneNumber,
-            String password, String address, String cpf, String rg, String level) {
-        super(name, lastRewarded, email, type, phoneNumber, password, address);
-        this.cpf = cpf;
+    public Student(String name, LocalDate databirth, String email, String cpf, UsersType type, String phoneNumber,
+            String password, String address, String rg, String level) {
+        super(name, databirth, email, cpf, type, phoneNumber, password, address);
         this.rg = rg;
         this.level = level;
     }
