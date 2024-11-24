@@ -2,12 +2,10 @@ package com.englishSchool.app.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.englishSchool.app.dto.ActivityDTO;
 import com.englishSchool.app.dto.ClassroomDTO;
 import com.englishSchool.app.mappers.ClassroomMapper;
 import com.englishSchool.app.model.Activity;

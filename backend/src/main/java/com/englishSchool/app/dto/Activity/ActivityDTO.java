@@ -1,4 +1,4 @@
-package com.englishSchool.app.dto;
+package com.englishSchool.app.dto.Activity;
 
 import java.time.LocalDate;
 

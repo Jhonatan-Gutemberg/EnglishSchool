@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.englishSchool.app.enums.UsersType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -31,6 +32,10 @@ public class Student extends Users {
     @ManyToOne
     @JsonBackReference
     private Classroom classroom;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<StudentActivity> studentActivities;
 
     public Student(String name, LocalDate databirth, String email, String cpf, UsersType type, String phoneNumber,
             String password, String address, String rg, String level) {

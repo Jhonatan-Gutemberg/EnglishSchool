@@ -1,7 +1,7 @@
 package com.englishSchool.app.mappers;
 
 
-import com.englishSchool.app.dto.ActivityDTO;
+import com.englishSchool.app.dto.Activity.ActivityDTO;
 import com.englishSchool.app.model.Activity;
 
 public class ActivityMapper {

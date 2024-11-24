@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-const Cursos = () => {
+const Home = () => {
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,15 +11,12 @@ const Cursos = () => {
       const response = await fetch('http://localhost:8080/classroom/all');
       const data = await response.json();
 
-      console.log('Resposta da API:', data); 
-
-     
       if (data && Array.isArray(data)) {
-        setCursos(data); 
+        setCursos(data);
       } else if (data && Array.isArray(data.data)) {
-        setCursos(data.data); 
+        setCursos(data.data);
       } else {
-        setCursos([]); 
+        setCursos([]);
       }
     } catch (err) {
       setError('Erro ao carregar as turmas');
@@ -42,9 +40,8 @@ const Cursos = () => {
         cursos.map((curso) => (
           <div key={curso.id} className="course-item">
             <h3>{curso.name}</h3>
-            <p>
-              Professor: {curso.teacher ? curso.teacher.name : 'Sem professor designado'}
-            </p>
+            <p>Professor: {curso.teacher ? curso.teacher.name : 'Sem professor designado'}</p>
+            <Link to={`/classroom/${curso.id}/activities`}>Ver Atividades</Link>
           </div>
         ))
       )}
@@ -52,4 +49,4 @@ const Cursos = () => {
   );
 };
 
-export default Cursos;
+export default Home;

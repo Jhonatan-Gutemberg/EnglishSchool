@@ -1,0 +1,77 @@
+.activity-block {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.activity-description {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.difficulty-level {
+  margin-bottom: 10px;
+}
+
+.difficulty-level .difficulty {
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.difficulty.easy {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.difficulty.medium {
+  background-color: #FFEB3B; 
+  color: black;
+}
+
+.difficulty.hard {
+  background-color: #F44336; 
+  color: white;
+}
+
+.status {
+  margin-bottom: 20px;
+}
+
+.confirm-button {
+  background-color: #2e63b1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #063963;
+}
+
+.loading, .error {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.activities-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}

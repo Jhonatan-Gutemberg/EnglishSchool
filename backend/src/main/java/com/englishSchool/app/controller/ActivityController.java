@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.englishSchool.app.controller.ApiResponse.ApiResponse;
-import com.englishSchool.app.dto.ActivityDTO;
+import com.englishSchool.app.dto.Activity.ActivityCompletionRequest;
+import com.englishSchool.app.dto.Activity.ActivityDTO;
 import com.englishSchool.app.model.Activity;
 import com.englishSchool.app.service.interfaces.IActivityService;
 
@@ -78,7 +79,6 @@ public class ActivityController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
         }
     }
-    
 
     @PutMapping("/update/{id}")
     public ResponseEntity<ApiResponse<Activity>> update(@PathVariable Long id,
@@ -117,6 +117,25 @@ public class ActivityController {
             ApiResponse<Void> errorResponse = new ApiResponse<>(false, e.getMessage(), null);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
         }
+    }
+
+    @PostMapping("/confirmCompletion")
+    public ResponseEntity<ApiResponse<String>> confirmActivityCompletion(
+            @RequestBody ActivityCompletionRequest request) {
+        try {
+            String resultMessage = activityService.confirmActivityCompletion(request);
+
+            ApiResponse<String> response = new ApiResponse<>(true, resultMessage, null);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            ApiResponse<String> errorResponse = new ApiResponse<>(false, e.getMessage(), null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+        }
+    }
+
+    @GetMapping("/{studentId}/{activityId}/status")
+    public String checkActivityStatus(@PathVariable Long studentId, @PathVariable Long activityId) {
+        return activityService.checkActivityStatus(studentId, activityId);
     }
 
 }
