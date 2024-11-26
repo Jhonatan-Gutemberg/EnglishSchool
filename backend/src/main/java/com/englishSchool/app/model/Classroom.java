@@ -2,6 +2,7 @@ package com.englishSchool.app.model;
 
 import java.util.List;
 
+import com.englishSchool.app.enums.ActivityStatus;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -48,6 +49,22 @@ public class Classroom {
 
     public Classroom(String name) {
         this.name = name;
+    }
+
+    public int countStudents() {
+        return students != null ? students.size() : 0;
+    }
+
+    public int countStudentsWhoCompletedActivity(Long activityId) {
+        return (int) students.stream()
+                .filter(student -> student.getStudentActivities().stream()
+                        .anyMatch(activity -> activity.getActivity().getId().equals(activityId)
+                                && activity.getStatus() == ActivityStatus.COMPLETED))
+                .count();
+    }
+
+    public int getStudentCount() {
+        return students != null ? students.size() : 0;
     }
 
 }

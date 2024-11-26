@@ -26,10 +26,19 @@ public class ClassroomService implements IClassroomService {
     private ITeacherService teacherService;
 
     @Override
-    public Classroom register(ClassroomDTO classroomDTO) {
-        Classroom Classroom = ClassroomMapper.ClassroomDtoToModel(classroomDTO);
-        classroomRepository.save(Classroom);
-        return Classroom;
+    public Classroom register(ClassroomDTO classroomDTO, Long id_Teacher) {
+        Teacher teacher = teacherService.getTeacherById(id_Teacher);
+
+        if (teacher != null) {
+            Classroom classroom = ClassroomMapper.ClassroomDtoToModel(classroomDTO);
+            classroom.setTeacher(teacher);
+            classroomRepository.save(classroom);
+            return classroom;
+        } else {
+            throw new UserNotFoundException("User with id " + id_Teacher + " not found.");
+
+        }
+
     }
 
     @Override
@@ -43,6 +52,17 @@ public class ClassroomService implements IClassroomService {
 
         return Classroom.orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found."));
 
+    }
+
+    @Override
+    public List<Classroom> getClassroomsByTeacherId(Long teacherId) {
+        Teacher teacher = teacherService.getTeacherById(teacherId);
+
+        if (teacher != null) {
+            return classroomRepository.findByTeacherId(teacherId);
+        } else {
+            throw new UserNotFoundException("Teacher with id " + teacherId + " not found.");
+        }
     }
 
     @Override
@@ -91,6 +111,13 @@ public class ClassroomService implements IClassroomService {
         Classroom classroom = getClassroomById(classroomId);
         return classroom.getActivities();
 
+    }
+
+    @Override
+    public int getStudentCountByClassroomId(Long classroomId) {
+        Classroom classroom = getClassroomById(classroomId);
+
+        return classroom.getStudentCount();
     }
 
 }

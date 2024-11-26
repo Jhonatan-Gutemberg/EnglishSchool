@@ -31,11 +31,11 @@ public class ClassroomController {
     @Autowired
     private IClassroomService classroomService;
 
-    @PostMapping("/register")
+    @PostMapping("/register/{idTeacher}")
     public ResponseEntity<ApiResponse<Classroom>> register(
-            @RequestBody @Valid ClassroomDTO classroomDTO) {
+            @RequestBody @Valid ClassroomDTO classroomDTO, @PathVariable Long idTeacher) {
         try {
-            Classroom classroom = classroomService.register(classroomDTO);
+            Classroom classroom = classroomService.register(classroomDTO, idTeacher);
             ApiResponse<Classroom> response = new ApiResponse<Classroom>(true,
                     "User registered succesfully",
                     classroom);
@@ -58,6 +58,16 @@ public class ClassroomController {
             ApiResponse<List<Classroom>> errorResponse = new ApiResponse<>(false, e.getMessage(), null);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
         }
+    }
+
+    @GetMapping("/{id}/student-count")
+    public int getStudentCountByClassroomId(@PathVariable Long id) {
+        return classroomService.getStudentCountByClassroomId(id);
+    }
+
+    @GetMapping("/teacher/{teacherId}")
+    public List<Classroom> getClassroomsByTeacher(@PathVariable Long teacherId) {
+        return classroomService.getClassroomsByTeacherId(teacherId);
     }
 
     @GetMapping("/{id}")
@@ -93,8 +103,6 @@ public class ClassroomController {
         }
     }
 
-    
-
     @PutMapping("/update/{id}")
     public ResponseEntity<ApiResponse<Classroom>> update(@PathVariable Long id,
             @RequestBody @Valid ClassroomDTO ClassroomDTO) {
@@ -119,7 +127,7 @@ public class ClassroomController {
 
     @PostMapping("/update/{id}/{idTeacher}")
     public ResponseEntity<ApiResponse<Classroom>> addTeacher(@PathVariable Long id,
-            @RequestBody @Valid ClassroomDTO ClassroomDTO,@PathVariable Long idTeacher) {
+            @RequestBody @Valid ClassroomDTO ClassroomDTO, @PathVariable Long idTeacher) {
         try {
             Classroom updatedClassroom = classroomService.addTeacher(id, ClassroomDTO, idTeacher);
             if (updatedClassroom != null) {

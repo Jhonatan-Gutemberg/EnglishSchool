@@ -12,4 +12,5 @@ public interface StudentActivityRepository extends JpaRepository<StudentActivity
 
     Optional<StudentActivity> findByStudentIdAndActivityId(Long studentId, Long activityId);
 
+
 }

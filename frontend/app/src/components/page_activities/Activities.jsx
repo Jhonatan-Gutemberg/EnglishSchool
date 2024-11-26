@@ -9,7 +9,7 @@ const Activities = () => {
   const [alert, setAlert] = useState(null); 
 
   useEffect(() => {
-    fetch('http://localhost:8080/classroom/1/activities')
+    fetch('http://localhost:8080/classroom/2/activities')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao carregar atividades');
@@ -25,7 +25,7 @@ const Activities = () => {
 
           Promise.all(
             activitiesWithStatus.map((activity) =>
-              fetch(`http://localhost:8080/activity/4/${activity.id}/status`)
+              fetch(`http://localhost:8080/activity/12/${activity.id}/status`)
                 .then((res) => {
                   if (!res.ok) throw new Error('Erro ao buscar status da atividade');
                   return res.text();

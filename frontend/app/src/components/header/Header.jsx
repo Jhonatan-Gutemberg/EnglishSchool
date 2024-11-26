@@ -1,15 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './Header.css';
 
 const Header = () => {
+  const navigate = useNavigate(); 
+
+  const handleLogin = () => {
+    navigate('/dashboard');
+  };
+
   return (
     <header className="header">
       <div className="header-container">
         <div className="logo">
           <h1>EnglishSchool</h1>
-        </div>
-        <div>
-
         </div>
         <nav className="nav-links">
           <ul>
@@ -20,7 +24,9 @@ const Header = () => {
           </ul>
         </nav>
         <div className="auth-buttons">
-          <button className="login-button">Login</button>
+          <button className="login-button" onClick={handleLogin}>
+            Login
+          </button>
         </div>
       </div>
     </header>
