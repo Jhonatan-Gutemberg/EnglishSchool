@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" version="25.0.1">
+  <diagram name="Página-1" id="dm_Nt_0ipqTwSsYrss_a">
+    <mxGraphModel dx="934" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bLayXLF2wor5on24xMIU-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="40" width="550" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-2" value="Estudante" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="157" y="60" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-3" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="bLayXLF2wor5on24xMIU-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="167" y="794.4443969726562" as="sourcePoint" />
+            <mxPoint x="167" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-4" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" target="bLayXLF2wor5on24xMIU-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="167" y="400" as="sourcePoint" />
+            <mxPoint x="167" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="172" y="178" as="sourcePoint" />
+            <mxPoint x="285" y="178" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-34" value="Matricular" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bLayXLF2wor5on24xMIU-5">
+          <mxGeometry x="-0.2094" y="4" relative="1" as="geometry">
+            <mxPoint x="3" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="162" y="160" width="10" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-9" value="" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="70" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-10" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="291" y="390" as="sourcePoint" />
+            <mxPoint x="291" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-17" value="Tela cadastro" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-18" value="" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="466" y="70" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-19" value="API" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="451" y="110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-20" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.515;entryY=0.915;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="bLayXLF2wor5on24xMIU-21" target="bLayXLF2wor5on24xMIU-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="482" y="550" as="sourcePoint" />
+            <mxPoint x="482" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-22" value="" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="623" y="70" width="37.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-23" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="642.75" y="399.9999999999999" as="sourcePoint" />
+            <mxPoint x="642.75" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="637.75" y="159" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-30" value="Banco de dados" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="612.75" y="110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-31" value="Cadastro realizado" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;entryX=1.323;entryY=0.565;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="287" y="265" as="sourcePoint" />
+            <mxPoint x="172" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.951;exitY=0.144;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="bLayXLF2wor5on24xMIU-32" target="bLayXLF2wor5on24xMIU-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="295" y="209" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-37" value="Envia formulário de cadastro" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bLayXLF2wor5on24xMIU-36">
+          <mxGeometry x="0.13" y="-1" relative="1" as="geometry">
+            <mxPoint x="-17" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-32" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="285" y="160" width="10" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-35" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" target="bLayXLF2wor5on24xMIU-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="482" y="400" as="sourcePoint" />
+            <mxPoint x="482" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="bLayXLF2wor5on24xMIU-21" target="bLayXLF2wor5on24xMIU-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-39" value="register(estudante)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bLayXLF2wor5on24xMIU-38">
+          <mxGeometry x="-0.2774" y="3" relative="1" as="geometry">
+            <mxPoint x="10" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="476" y="159" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="bLayXLF2wor5on24xMIU-21" target="bLayXLF2wor5on24xMIU-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="481" y="150" />
+              <mxPoint x="510" y="150" />
+              <mxPoint x="510" y="183" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-42" value="throw exception&lt;div&gt;&quot;Usuário não registrado&quot;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="bLayXLF2wor5on24xMIU-40">
+          <mxGeometry x="0.3241" relative="1" as="geometry">
+            <mxPoint x="60" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bLayXLF2wor5on24xMIU-41" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="483" y="178" width="10" height="11" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
