@@ -1,8 +1,46 @@
-# EnglishSchool 
+# EnglishSchool  
 
-### Criadores: Gabriel Henrique Miranda Rodrigues, Jhonatan Gutemebrg Rosa Ferreira
-### Introdução :
-Este documento agrega: 1) a elaboração e revisão de modelos de domínio e 2) modelos de projeto para o sistema EnglishSchool. A referência principal para a descrição geral do problema, domínio e requisitos do sistema é o documento de especificação que descreve a visão de domínio do sistema.  
-## Resumo:
- EnglishSchool é um sistema desenvolvido para auxiliar nas aulas de inglês, promovendo uma interação mais próxima entre alunos e professores. Ele permite que os professores enviem atividades para seus alunos, enquanto os alunos podem avaliar o nível de dificuldade de cada tarefa. O sistema também oferece funcionalidades para o controle de notas individuais e desempenho das turmas, tornando-se uma ferramenta completa para aprimorar a experiência de aprendizado.
- 
+### **Criadores:**  
+- Gabriel Henrique Miranda Rodrigues  
+- Jhonatan Gutemberg Rosa Ferreira  
+
+---
+
+## **Introdução**  
+Este documento descreve o desenvolvimento do sistema **EnglishSchool**, detalhando a elaboração e revisão de **modelos de domínio** e **modelos de projeto**. A base principal para a construção do sistema é o documento de especificação, que define a visão de domínio e os requisitos gerais.  
+
+---
+
+## **Diagrama e Modelos do Sistema**  
+
+### **Arquitetura e Diagramas**  
+
+1. **Diagrama de Componentes e Implantação**  
+   - Representa os principais módulos do sistema, suas interações e onde estarão alocados para execução.  
+
+2. **Diagrama de Classes**  
+   - Modela as principais entidades do sistema, como `Professor`, `Aluno`, `Turma` e `Atividade`, mostrando suas propriedades e relacionamentos.  
+
+3. **Diagramas de Sequência**  
+   - Criados para representar os fluxos detalhados dos principais casos de uso:  
+
+4. **Diagramas de Comunicação**  
+   - Complementam os diagramas de sequência, detalhando as interações entre os atores e o sistema.  
+
+5. **Diagramas de Estados**  
+   - Representam o ciclo de vida de entidades importantes do sistema, como turmas e atividades.  
+
+---
+
+### **Modelos de Dados**  
+- Os esquemas de banco de dados foram projetados para refletir os principais objetos do sistema, garantindo a persistência de informações como usuários, turmas e atividades.  
+- Estratégias de mapeamento foram utilizadas para integrar representações objetivas (no código) e relacionais (no banco de dados).  
+
+---
+
+### **Tecnologias Utilizadas**  
+- **Tecnologias:** *Java, Spring Boot, Spring Security, HTML, CSS, JavsScript, React*  
+- **Banco de Dados:** *PostgreSQL*  
+
+---
+
