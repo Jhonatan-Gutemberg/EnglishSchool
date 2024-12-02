@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Importando useNavigate
+import { useNavigate } from 'react-router-dom';  
 
 import './Hero.css';
 
 const Hero = () => {
-  const navigate = useNavigate();  // Usando useNavigate ao invés de useHistory
-  const [showPopup, setShowPopup] = useState(false);  // Controla a exibição do popup
-
+  const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);  
   const handleRegisterClick = () => {
-    setShowPopup(true);  // Abre o popup ao clicar no botão
+    setShowPopup(true);  
   };
 
   const handleChoice = (role) => {
-    setShowPopup(false);  // Fecha o popup
+    setShowPopup(false);  
     if (role === 'student') {
-      navigate('/student-register');  // Navega para o formulário de cadastro de estudante
+      navigate('/student-register');  
     } else if (role === 'teacher') {
-      navigate('/teacher-register');  // Navega para o formulário de cadastro de professor
+      navigate('/teacher-register'); 
     }
   };
 
@@ -28,7 +27,6 @@ const Hero = () => {
         <button className="cta-btn" onClick={handleRegisterClick}>Matricule-se Agora</button>
       </div>
 
-      {/* Popup de escolha de registro */}
       {showPopup && (
         <div className="popup">
           <div className="popup-content">

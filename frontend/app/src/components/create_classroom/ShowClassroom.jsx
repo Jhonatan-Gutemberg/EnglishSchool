@@ -1,17 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { FaUsers, FaChalkboardTeacher } from "react-icons/fa";
 
-const ShowClassroom = ({ teacherId }) => {
+const ShowClassroom = ({ teacherId: propTeacherId }) => {
     const [classes, setClasses] = useState([]);
     const [studentCounts, setStudentCounts] = useState({});
+    const [teacherId, setTeacherId] = useState(null);
+
+    useEffect(() => {
+        const storedTeacherId = localStorage.getItem("auth-id");
+        if (storedTeacherId) {
+            setTeacherId(storedTeacherId);
+        } else if (propTeacherId) {
+            setTeacherId(propTeacherId);
+        } else {
+            alert("ID do professor não encontrado.");
+        }
+    }, [propTeacherId]);
 
     const fetchClasses = async () => {
+        if (!teacherId) return;
+
+        const token = localStorage.getItem('auth-token'); 
+
         try {
-            const response = await fetch(`http://localhost:8080/classroom/teacher/1`);
+            const response = await fetch(`http://localhost:8080/classroom/teacher/${teacherId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` 
+                }
+            });
+
             if (response.ok) {
                 const result = await response.json();
                 setClasses(result);
-                result.forEach((classroom) => fetchStudentCount(classroom.id));
+                result.forEach((classroom) => fetchStudentCount(classroom.id, token)); 
             } else {
                 alert("Erro ao buscar turmas do professor.");
             }
@@ -21,9 +44,15 @@ const ShowClassroom = ({ teacherId }) => {
         }
     };
 
-    const fetchStudentCount = async (classroomId) => {
+    const fetchStudentCount = async (classroomId, token) => {
         try {
-            const response = await fetch(`http://localhost:8080/classroom/${classroomId}/student-count`);
+            const response = await fetch(`http://localhost:8080/classroom/${classroomId}/student-count`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
             if (response.ok) {
                 const studentCount = await response.json();
                 setStudentCounts((prev) => ({
@@ -39,7 +68,9 @@ const ShowClassroom = ({ teacherId }) => {
     };
 
     useEffect(() => {
-        fetchClasses();
+        if (teacherId) {
+            fetchClasses();
+        }
     }, [teacherId]);
 
     return (
@@ -70,5 +101,6 @@ const ShowClassroom = ({ teacherId }) => {
         </div>
     );
 };
+
 
 export default ShowClassroom;

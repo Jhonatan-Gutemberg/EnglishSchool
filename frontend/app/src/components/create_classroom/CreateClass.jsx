@@ -1,24 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
-import "./CreateClass.css";
 
-const CreateClassroom = ({ teacherId, onClassCreated }) => {
+const CreateClassroom = ({ onClassCreated }) => {
   const [className, setClassName] = useState("");
   const [isCreating, setIsCreating] = useState(false);
+  const [teacherId, setTeacherId] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const storedTeacherId = localStorage.getItem("auth-id");
+    if (storedTeacherId) {
+      setTeacherId(storedTeacherId); 
+    } else {
+      setErrorMessage("ID do professor não encontrado.");
+    }
+  }, []);
 
   const handleCreateClass = async () => {
     if (!className.trim()) {
-      alert("Por favor, insira o nome da turma.");
+      setErrorMessage("Por favor, insira o nome da turma.");
       return;
     }
 
-    setIsCreating(true); 
+    if (!teacherId) {
+      setErrorMessage("ID do professor não encontrado.");
+      return;
+    }
+
+    setIsCreating(true);
+    setErrorMessage(""); 
+
+    const token = localStorage.getItem("auth-token");
+    if (!token) {
+      setErrorMessage("Token de autenticação não encontrado.");
+      setIsCreating(false);
+      return;
+    }
 
     try {
       const response = await fetch(`http://localhost:8080/classroom/register/${teacherId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify({ name: className }),
       });
@@ -28,13 +52,13 @@ const CreateClassroom = ({ teacherId, onClassCreated }) => {
         setClassName("");
         if (onClassCreated) onClassCreated();
       } else {
-        alert("Erro ao criar turma.");
+        setErrorMessage("Erro ao criar turma. Verifique os dados.");
       }
     } catch (error) {
       console.error("Erro na requisição:", error);
-      alert("Erro ao criar turma. Verifique a conexão com o servidor.");
+      setErrorMessage("Erro ao criar turma. Verifique a conexão com o servidor.");
     } finally {
-      setIsCreating(false); 
+      setIsCreating(false);
     }
   };
 
@@ -42,6 +66,7 @@ const CreateClassroom = ({ teacherId, onClassCreated }) => {
     <div className="create-classroom-card">
       <h2>Criar Nova Turma</h2>
       <p>Organize suas aulas criando uma nova turma com facilidade.</p>
+      {errorMessage && <p className="error-message">{errorMessage}</p>} 
       <div className="input-container">
         <input
           type="text"

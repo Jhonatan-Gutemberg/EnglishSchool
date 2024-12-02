@@ -6,7 +6,7 @@ const Header = () => {
   const navigate = useNavigate(); 
 
   const handleLogin = () => {
-    navigate('/dashboard');
+    navigate('/login');
   };
 
   return (

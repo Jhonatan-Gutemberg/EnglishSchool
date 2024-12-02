@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaHome, FaChalkboardTeacher, FaCog } from "react-icons/fa";
 import CreateClassroom from "./CreateClass";
 import ShowClassroom from "./ShowClassroom";
+import CreateActivity from "./CreateActivity";
 import "./Styles.css";
 
 const TeacherDashboard = ({ teacherId }) => {
@@ -38,6 +39,9 @@ const TeacherDashboard = ({ teacherId }) => {
           </div>
           <div className="card">
             <ShowClassroom key={update} />
+          </div>
+          <div className="card">
+            <CreateActivity teacherId={teacherId} />
           </div>
         </section>
       </main>

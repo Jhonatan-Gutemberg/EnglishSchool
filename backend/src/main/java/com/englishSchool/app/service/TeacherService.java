@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.englishSchool.app.dto.TeacherDTO;
@@ -19,9 +20,14 @@ public class TeacherService implements ITeacherService {
     @Autowired
     private TeacherRepository teacherRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public Teacher register(TeacherDTO teacherDTO) {
         Teacher teacher = UsersMapper.TeacherDtoToModel(teacherDTO);
+
+        teacher.setPassword(passwordEncoder.encode(teacherDTO.password()));
         teacherRepository.save(teacher);
         return teacher;
     }

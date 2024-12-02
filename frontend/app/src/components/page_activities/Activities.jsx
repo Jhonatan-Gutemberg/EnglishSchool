@@ -1,67 +1,95 @@
 import React, { useState, useEffect } from 'react';
 import './Activities.css';
-import Alert from './alert/Alert'; 
+import Alert from './alert/Alert';
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [alert, setAlert] = useState(null); 
+  const [alert, setAlert] = useState(null);
+
+  const token = localStorage.getItem('auth-token');
+  const id_classroom = localStorage.getItem('id-classroom');
+  const studentId = localStorage.getItem('student-id');  
 
   useEffect(() => {
-    fetch('http://localhost:8080/classroom/2/activities')
-      .then((response) => {
+    const loadActivities = async () => {
+      if (!token) {
+        setError('Token de autenticação não encontrado.');
+        setLoading(false);
+        return;
+      }
+  
+      if (!id_classroom) {
+        setError('Classroom ID não encontrado');
+        setLoading(false);
+        return;
+      }
+  
+      try {
+        const response = await fetch(`http://localhost:8080/classroom/1/activities`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+  
         if (!response.ok) {
           throw new Error('Erro ao carregar atividades');
         }
-        return response.json();
-      })
-      .then((data) => {
+  
+        const data = await response.json();
         if (data.success) {
           const activitiesWithStatus = data.data.map((activity) => ({
             ...activity,
             status: 'Pendente',
           }));
-
-          Promise.all(
-            activitiesWithStatus.map((activity) =>
-              fetch(`http://localhost:8080/activity/12/${activity.id}/status`)
-                .then((res) => {
-                  if (!res.ok) throw new Error('Erro ao buscar status da atividade');
-                  return res.text();
-                })
-                .then((status) => {
-                  activity.status = status === 'COMPLETED' ? 'Concluída' : 'Pendente';
-                })
-                .catch(() => {
-                  activity.status = 'Pendente'; 
-                })
-            )
-          ).then(() => {
-            setActivities(activitiesWithStatus);
-            setLoading(false);
-          });
+  
+      
+          for (const activity of activitiesWithStatus) {
+            try {
+              const res = await fetch(`http://localhost:8080/activity/${studentId}/${activity.id}/status`, {
+                method: 'GET',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                },
+              });
+  
+              if (!res.ok) throw new Error('Erro ao buscar status da atividade');
+              const status = await res.text();
+              activity.status = status === 'COMPLETED' ? 'Concluída' : 'Pendente';
+            } catch {
+              activity.status = 'Pendente';
+            }
+          }
+  
+          setActivities(activitiesWithStatus);
         } else {
           setError('Erro ao carregar atividades');
-          setLoading(false);
         }
-      })
-      .catch((err) => {
+      } catch (err) {
         setError(err.message);
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+  
+    loadActivities();
+  }, [token, id_classroom, studentId]);
+  
 
   const handleConfirmActivity = (activityId) => {
     const requestBody = {
-      studentId: 4,
-      activityId: activityId, 
+      studentId: studentId,  
+      activityId: activityId,
     };
 
     fetch('http://localhost:8080/activity/confirmCompletion', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(requestBody),
     })
